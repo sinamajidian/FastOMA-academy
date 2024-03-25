@@ -1,0 +1,37 @@
+image: gitpod/workspace-base
+
+tasks:
+- name: install all softwares and download databases
+  init: |
+    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
+    /workspace/conda/bin/mamba init bash
+    source ${HOME}/.bashrc
+    mamba create -n omacademy -c conda-forge python=3.9 -y
+    mamba activate omacademy
+    cd Module_FastOMA/working_dir/
+    wget https://github.com/DessimozLab/FastOMA/archive/refs/heads/master.zip
+    unzip master.zip
+    mv FastOMA-master FastOMA
+    pip install ./FastOMA[report]
+    cd ../../../
+    mamba install -c bioconda mafft -y 
+    mamba install -c bioconda fasttree -y
+    mamba install -c bioconda iqtree -y
+    mamba install -c conda-forge openjdk -y
+    pip install pyham
+    echo 'mamba activate omacademy' >> ${HOME}/.bashrc
+
+    curl -L -O "https://omabrowser.org/All/Primates.h5"
+    curl -L -O "https://oma-stage.vital-it.ch/All/Saccharomyceta.h5"
+    #cp Saccharomyceta.h5 /Module_FastOMA/working_dir/in_folder/omamerdb.h5
+    mv Saccharomyceta.h5 /Module_FastOMA/working_dir/in_folder/omamerdb.h5/
+
+  command: |
+    source ${HOME}/.bashrc
+
+vscode:
+  extensions:
+    - anwar.papyrus-pdf
+
+workspaceLocation: "/workspace"

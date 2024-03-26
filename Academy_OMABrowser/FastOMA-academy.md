@@ -14,7 +14,7 @@ FastOMA is a software for inferring homology information on your custom genomes,
 
 ---
 
-For Modules 2-4, you will need to use our [GitPod instance](https://gitpod.io/#https://github.com/sinamajidian/FastOMA-academy/)
+For this Modules, you will need to use our [GitPod instance](https://gitpod.io/#https://github.com/sinamajidian/FastOMA-academy/)
 
 ---
 

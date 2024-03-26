@@ -16,7 +16,8 @@ cd /workspace/FastOMA-academy/Module_FastOMA/working_dir
 nextflow -h
 
 
-nextflow /workspace/FastOMA/FastOMA.nf --input_folder in_folder --output_folder out_folder  --omamer_db in_folder/omamerdb.h5
+nextflow /workspace/FastOMA/FastOMA.nf --input_folder in_folder --output_folder out_folder \
+ --omamer_db in_folder/omamerdb.h5
 ```
 
 

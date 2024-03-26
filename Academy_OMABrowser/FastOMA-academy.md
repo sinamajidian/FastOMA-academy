@@ -7,7 +7,7 @@
 
 
 ///I
-FastOMA is a software package for inferring homologous relationships between coding genes of multiple species on your custom genomes, including generating Hierarchical Orthologous Groups. It takes as input  several files in the FASTA format; each containing the sequences of proteins coded by all genes in a species genome - the proteome. It also requires a species tree, resolving the relationship between species
+FastOMA is a software package for inferring homologous relationships between coding genes of multiple species, including generating Hierarchical Orthologous Groups. It takes as input  several files in the FASTA format; each containing the sequences of proteins coded by all genes in a species genome - the proteome. It also requires a species tree, resolving the relationship between species
 
 
 ///T
@@ -110,7 +110,7 @@ Then, check whether Nextflow is installed on your system by running ```nextflow 
 Check the [FastOMA GitHub page](https://github.com/DessimozLab/fastoma). Important note: without specifying ```--omamer_db``` FastOMA will download a large database, covering the entire OMA database. This is not a problem for most machines, but could be problematic on GitPod.
 
 ///R
-```nextflow FastOMAnf  --input_folder in_folder   --output_folder out_folder --omamer_db in_folder/omamerdb.h5```
+```nextflow /workspace/FastOMA/FastOMA.nf  --input_folder in_folder   --output_folder out_folder --omamer_db in_folder/omamerdb.h5```
 
 ///T
 Execute the above command to run FastOMA.  
@@ -133,16 +133,12 @@ Recall that Orthologous Groups are groups of strict orthologs, with at most 1 re
 
 ///T
 The output of FastOMA includes three folders 
-*hogmap: contains the OMAmer results used by FastOMA
-*OrthologousGroupsFasta: contains FASTA files of marker orthologous groups
-*RootHOGsFasta: contains FASTA file of sequences in each HOGs) and seven files 
+*hogmap : contains the OMAmer results used by FastOMA
+*OrthologousGroupsFasta: contains FASTA files of marker orthologous groups *RootHOGsFasta: contains FASTA file of sequences in each HOGs) and seven files 
 *The main orthology results: FastOMA_HOGs.orthoxml, orthologs.tsv.gz, RootHOGs.tsv, OrthologousGroups.tsv   
-*Synthetic reports: phylostratigraphy.html,  report.ipynb, report.html,  
-*The transformed input species tree: species_tree_checked.nwk). 
+*Synthetic reports : phylostratigraphy.html,  report.ipynb, report.html,  *The transformed input species tree: species_tree_checked.nwk).  
 
-
-The ```hogmap``` folder includes the output of OMAmer (Described in the [OMAmer Module](https://omabrowser.org/oma/academy/module/OMAmer_2023)); each file corresponds to an input proteome
-
+The ```hogmap``` folder includes the output of OMAmer (Described in the [OMAmer Module](https://omabrowser.org/oma/academy/module/OMAmer_2023)); each file corresponds to an input proteome.
 
 **Orthologous groups**
 The folder OrthologousGroupsFasta includes FASTA files, in which all proteins inside each FASTA file are orthologous to each other. These could be used as gene markers for species tree inference (Module 3).
@@ -154,7 +150,7 @@ The folder OrthologousGroupsFasta includes FASTA files, in which all proteins in
 You can count the number of FASTA files in the folder OrthologousGroupsFasta.
 
 ///R
-6,773., Note: The numbers could slightly change in different runs. 
+6,773. Note: The number could slightly change in different runs. 
 
 ///Q
 2.  How many genes in total are present in all Orthologous Groups? 
@@ -222,10 +218,11 @@ There are 7 proteins in this family. RL15A_YEAST, Q4WJV5_ASPFU, sp|P54780|RL15B_
 YEAST (<i>Saccharomyces cerevisiae</i>) and SCHPO (<i>Schizosaccharomyces pombe</i>) have more than one protein in the root HOG, which indicate there have been one or more duplications in this gene family.
 
 
-///Q Find the FASTA file for this root HOG. It could been used as an input for more analysis, such as gene tree analysis
+///Q Find the FASTA file for this root HOG. It could be used as an input for more analysis, such as gene tree analysis.
 
 ///R 
-Indication to find the file and maybe how to build a species tree?
+FASTA files are in the folder ``` RootHOGsFasta```, which could be used to align them using [MAFFT](https://mafft.cbrc.jp/alignment/software/) and infer the gene trees ([FastTree](https://microbesonline.org/fasttree/) both are already installed in the environment). 
+
 
 **Phylostratigraphy**	
 
@@ -255,7 +252,7 @@ FastOMA produces a report in HTML format (```report.html```) indicating informat
 
 
 ///Q
-8. Which species hasdoes have the most proteins in its proteome? 
+8. Which species has the most proteins in its proteome? 
 
 ///H
 Check the section "Stats on input dataset" in the ```report.html``` file. 
@@ -293,7 +290,7 @@ Check the section "Roothogs (deepest levels for every HOG)" in the ```report.htm
 Yes, most HOGs have a completeness score of 1.
 
 ///T
-Given FastOMA is installed in your local computer and you have a Jupyter Notebook installation. You can dynamically explore the contents of the HOGs in the FastOMA results using the [PyHAM library](https://github.com/DessimozLab/pyham) which is already installed in the FastOMA environment.
+Given FastOMA is installed in your local computer and you have a Jupyter Notebook installation. You can dynamically explore the contents of the HOGs in the FastOMA results using the [PyHAM library](https://github.com/DessimozLab/pyham) which is already installed in the FastOMA environment .
 
 
 

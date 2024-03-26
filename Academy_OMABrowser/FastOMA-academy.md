@@ -189,8 +189,56 @@ There are 7 proteins in this family.
 6. Which genes are orthologous to the gene A7EQW0_SCLS1? 
 
 ///H
-Find the corresponding line in the OrthologousGroups.tsv using ```$ grep A7EQW0_SCLS1 OrthologousGroups.tsv ```. Then, use grep on the first column ```$ grep "OG_0003358" OrthologousGroups.tsv ```
- .
+Find the corresponding line in the OrthologousGroups.tsv using ```$ grep A7EQW0_SCLS1 OrthologousGroups.tsv ```. Then, use grep on the first column ```$ grep "OG_0003358" OrthologousGroups.tsv ```.
 
 ///R
  'tr|Q4WEI0|Q4WEI0_ASPFU', 'tr|A7EQW0|A7EQW0_SCLS1', 'sp|P32468|CDC12_YEAST', 'tr|Q6C7L3|Q6C7L3_YARLI', 'sp|P48009|SPN4_SCHPO
+
+
+
+
+///Q
+7. How many genes are duplicated at the level of Saccharomyceta ? 
+
+///H
+Check the phylostratigraphy.html file in the out_folder. 
+
+///R
+265
+
+
+
+///Q
+8. Which species does have the most number of proteins in its proteome? 
+
+///H
+Check the section "Stats on input dataset" in the report.html file. 
+
+///R
+Sclerotinia sclerotiorum
+
+
+
+///Q
+9. What is the max value of the CompletenessScore? 
+
+///H
+Check the section "Roothogs (deepest levels for every HOG)" in the report.html file. 
+
+///R
+1
+
+
+
+///Q
+1. Which species does have the most number of genes in HOGs? 
+
+///H
+Check the section "Genes in HOGs" in the report.html file. 
+
+///R
+Sclerotinia sclerotiorum
+
+
+
+

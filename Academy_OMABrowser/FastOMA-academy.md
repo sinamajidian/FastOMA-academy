@@ -131,7 +131,7 @@ Output_folder
 Recall that Orthologous Groups are groups of strict orthologs, with at most 1 representative per species. Hierarchical Orthologous Groups are groups of orthologs and paralogs, defined at each taxonomic level.
 
 ///T
-The output of  FastOMA includes two folders (hogmap and OrthologousGroupsFasta) and three files (OrthologousGroupsFasta.tsv, rootHOGs.tsv and output_hog.orthoxml).  
+The output of  FastOMA includes three folders (hogmap, OrthologousGroupsFasta, RootHOGsFasta) and seven files (FastOMA_HOGs.orthoxml, orthologs.tsv.gz,  OrthologousGroups.tsv   phylostratigraphy.html,  report.ipynb,  RootHOGs.tsv, report.html,  species_tree_checked.nwk).  
 
 The hogmap folder includes the output of OMAmer (Described in [OMAmer Module](https://omabrowser.org/oma/academy/module/OMAmer_2023)); each file corresponds to an input proteome. The folder OrthologousGroupsFasta includes FASTA files, and all proteins inside each FASTA file are orthologous to each other. These could be used as gene markers for species tree inference (Module 3).
 
@@ -142,7 +142,7 @@ The hogmap folder includes the output of OMAmer (Described in [OMAmer Module](ht
 You can count the number of FASTA files in the folder OrthologousGroupsFasta.
 
 ///R
-6773 Note: The numbers could slightly change in different runs. 
+6773, Note: The numbers could slightly change in different runs. 
 
 ///Q
 2.  How many genes in total are present in all Orthologous Groups? 
@@ -161,7 +161,7 @@ Orthologous Groups which have a representative gene in every species could be co
 3. How many Orthologous Groups include one representative gene for each species? 
 
 ///H
-Count how many rows in OrthologousGroups.tsv have five genes. You can count the number of columns having four commas (separating five genes) using this command: ```cat OrthologousGroups.tsv |sed 's/[^,]//g'  | awk '{ print length }' | grep "4"  | wc -l ```.  
+Count how many groups in OrthologousGroups.tsv have five genes. You can count how many times each group appears using this command: ```cat OrthologousGroups.tsv | cut -f 1 |  sort | uniq -c |  awk '{print $1}' | grep 5 | wc -l ```.  
 
 ///R
  There are 1618 Orthologous Groups having five genes. 
@@ -170,7 +170,8 @@ Count how many rows in OrthologousGroups.tsv have five genes. You can count the 
 4. How many Root HOGs are in the HOG file?
 
 ///H
-Each line in the output file denotes a gene family. After running, check the end of the file rootHOGs.tsv. Note that the indexing starts from 0.
+Each line in the output file RootHOGs.tsv denotes a gene. You can count how many times each RootHOG appears using this command ``` cat RootHOGs.tsv | cut -f 1 |  sort | uniq -c  | wc -l```
+ Note that the first line is the header. So the output value - 1 will be the answer.
 
 ///R
 There are 6793 rootHOG (gene families) in this file.
@@ -179,7 +180,7 @@ There are 6793 rootHOG (gene families) in this file.
 5. Consider the gene “60S ribosomal protein L15-A” in *Schizosaccharomyces pombe* with protein ID: RL15A_SCHPO. How many proteins are in the gene family (for these 5 species of interest)?
 
 ///H
-Find the corresponding line in the rootHOGs.tsv using grep. 
+Find the corresponding line in the RootHOGs.tsv using ```$ grep RL15A_SCHPO RootHOGs.tsv ```. Then, use grep on the first column ```$ grep "HOG:0006324" RootHOGs.tsv ```
 
 ///R
 There are 7 proteins in this family.
@@ -188,7 +189,8 @@ There are 7 proteins in this family.
 6. Which genes are orthologous to the gene A7EQW0_SCLS1? 
 
 ///H
- You can use ```grep``` on the OrthologousGroups.tsv.
+Find the corresponding line in the OrthologousGroups.tsv using ```$ grep A7EQW0_SCLS1 OrthologousGroups.tsv ```. Then, use grep on the first column ```$ grep "OG_0003358" OrthologousGroups.tsv ```
+ .
 
 ///R
  'tr|Q4WEI0|Q4WEI0_ASPFU', 'tr|A7EQW0|A7EQW0_SCLS1', 'sp|P32468|CDC12_YEAST', 'tr|Q6C7L3|Q6C7L3_YARLI', 'sp|P48009|SPN4_SCHPO

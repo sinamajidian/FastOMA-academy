@@ -2,6 +2,25 @@
 
 
 
+
+## Summary
+
+* Create an account on GitPod https://gitpod.io
+* Access the FastOMA's GitPod [https://gitpod.io/#https://github.com/sinamajidian/FastOMA-academy](https://gitpod.io/#https://github.com/sinamajidian/FastOMA-academy).
+* Use the standard GitPod session and click on Continue
+* Wait a few minutes (GitPod will install FastOMA automatically).
+* Run the following command lines
+```
+cd /workspace/FastOMA-academy/Module_FastOMA/working_dir
+
+nextflow -h
+
+
+nextflow /workspace/FastOMA/FastOMA.nf --input_folder in_folder --output_folder out_folder  --omamer_db in_folder/omamerdb.h5
+```
+
+
+
 ## Teachers
 
 * [Sina Majidian](https://sinamajidian.github.io/)
@@ -25,7 +44,7 @@ The pdf for the slides of the course will be available soon.
 
 ## The OMA Academy
 
-To complete the course, you will follow the exercises of the OMA Academy on https://oma-stage.vital-it.ch/oma/academy/ for this course. OMA Academy is an e-learning website with a suite of self-learning modules centered around comparative genomics and phylogenetics. The modules are specifically designed to help computational biologists use OMA, a method and database for inferring orthologs. Each module is stand-alone, with a basic introduction and a series of exercises with hints and answers.
+To complete the course, you will follow the exercises of the OMA Academy on https://omabrowser.org/oma/academy/module/fastOMA_2023 for this course. OMA Academy is an e-learning website with a suite of self-learning modules centered around comparative genomics and phylogenetics. The modules are specifically designed to help computational biologists use OMA, a method and database for inferring orthologs. Each module is stand-alone, with a basic introduction and a series of exercises with hints and answers.
 This repository focuses on FastOMA module.
 
 

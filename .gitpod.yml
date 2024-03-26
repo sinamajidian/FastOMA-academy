@@ -10,10 +10,10 @@ tasks:
     mamba create -n omacademy -c conda-forge python=3.9 -y
     mamba activate omacademy
     cd Module_FastOMA/working_dir/
-    wget https://github.com/DessimozLab/FastOMA/archive/refs/heads/master.zip
+    wget https://github.com/DessimozLab/FastOMA/archive/refs/heads/main.zip
     unzip master.zip
-    mv FastOMA-master FastOMA
-    pip install ./FastOMA[report]
+    mv FastOMA-main FastOMA
+    pip install FastOMA[report,nextflow]
     cd ../../../
     mamba install -c bioconda mafft -y 
     mamba install -c bioconda fasttree -y
@@ -25,7 +25,7 @@ tasks:
     curl -L -O "https://omabrowser.org/All/Primates.h5"
     curl -L -O "https://oma-stage.vital-it.ch/All/Saccharomyceta.h5"
     #cp Saccharomyceta.h5 /Module_FastOMA/working_dir/in_folder/omamerdb.h5
-    mv Saccharomyceta.h5 /Module_FastOMA/working_dir/in_folder/omamerdb.h5/
+    mv Primates.h5 /Module_FastOMA/working_dir/in_folder/omamerdb.h5/
 
   command: |
     source ${HOME}/.bashrc
